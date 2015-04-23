@@ -5,11 +5,11 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
 
-	<script src="deck.js/extensions/includedeck/load.js"></script>
+	<script src="deck-packed.js"></script>
         <script>
-            includedeck(["profile-1",
-                         "deck.js/extensions/incubator/autoshow.js",
-                         "autoshow.css",
+            includedeck([ //"profile-1",
+//                         "autoshow.js",
+//                         "autoshow.css",
                          "theme.css"], {
                // PREFIX: "deck.js",
                // ATEXIT: function() {alert('loaded')},
@@ -29,110 +29,110 @@
 
  <!-- this presentation uses smart syntax -->
 
- <section class="smart">
-    == ==[title-slide]
+ <section class="smark">
+# {title-slide}
     <h2 style="font-size: 50px; font-weight: normal; margin-bottom: 10px; text-transform: uppercase">Let's take this offline</h2>
     <h3 style="font-size: 2em; margin-top: 0px">Comment faire une application qui fonctionne hors connexion ?</h3>
-    @<center>
+    <center>
     <div class="autoshow">
        <div><img src="images/airplane-mode2.png"></div>
        <div><img src="images/network-conditioner2.png"></div>
        <div><img src="images/loading_spin.gif" style="margin-top: 80px; width: 120px; height: 120px"></div>
        <div><img src="images/waiting-muppet.gif"></div>
     </div>
-@</center>
+    </center>
 
-    =@ClaireReynaud=
+## @ClaireReynaud
     <img src="images/IOS_7_logo.png" style="height: 100px; margin-top: 150px; float: left">
     <img src="images/android.png" style="width: 140px; margin-top: 110px; margin-left: 30px; margin-bottom: 10px; float: left">
     <a href="https://www.babelbytes.com" style="float: right; margin-top: 110px">www.babelbytes.com</a>
     <img src="images/babelbytes-small.png" style="width: 290px; float: right">
     <img src="images/django.png" style="width: 200px; margin-left: 50px; clear: left; float: left">
 
-    ==Et vous ?==[title]
+# Et vous ?{title}
 
-    =Sujet de cette présentation=
+## Sujet de cette présentation
     * Des méthodes pour implémenter des applications en mode déconnecté
     * Exemples:
     ** iOS
     ** REST API
     ** Django REST Framework
 
-    =Le code de la démo=
+## Le code de la démo
     <br>
     <a href="https://github.com/creynaud/notes-iphone-app">https://github.com/creynaud/notes-iphone-app</a>
     <a href="https://github.com/creynaud/notes-server">https://github.com/creynaud/notes-server</a>
     <a href="https://awesomenotes.herokuapp.com/api/">https://awesomenotes.herokuapp.com/api/</a>
 
-    ==Qu'est-ce que j'entends par "fonctionner en mode déconnecté" ?==[title]
+# Qu'est-ce que j'entends par "fonctionner en mode déconnecté" ?{title}
 
-    =Pas de réseau ou un réseau lent=
+## Pas de réseau ou un réseau lent
     <img src="images/cliff.jpg" class="fullimgstretch">
     <a href="http://frombusytoeasy.blogspot.sk/" class="attribution">Photo by Danka Peter</a>
 
-    =Pas de réseau ou un réseau lent=
+## Pas de réseau ou un réseau lent
     <img src="images/lyon.jpg" class="fullimgstretch">
     <a href="http://www.flickr.com/photos/81054124@N00/" class="attribution">Photo by James Evans</a>
 
-    =Pas de réseau ou un réseau lent=
+## Pas de réseau ou un réseau lent
     <h3>Un utilisateur ne devrait pas attendre pour relire du contenu auquel il a déjà accédé</h3>
 
-    =Pas de réseau ou un réseau lent=
+## Pas de réseau ou un réseau lent
     <h3>Un utilisateur devrait pouvoir poster du contenu à tout moment</h3>
 
-    ==Pourquoi implémenter un mode déconnecté ?==[title]
+# Pourquoi implémenter un mode déconnecté ?{title}
 
-    =L'application Facebook il y a un an=
+## L'application Facebook il y a un an
     <img src="images/loading_spin.gif" style="width: 150px; height: 150px; margin-top: 30px">
     <img src="images/waiting-muppet.gif">
 
-    ==Pas vraiment l'expérience utilisateur qu'on souhaite avoir...==[title]
+# Pas vraiment l'expérience utilisateur qu'on souhaite avoir...{title}
 
-    =On s'attend à toujours voir du contenu=
+## On s'attend à toujours voir du contenu
     <img src="images/facebook.png" style="width: 120px; height: 213px; margin: 100px 50px 0px 0px; float: left">
     <img src="images/twitter.png" style="width: 120px; height: 213px; margin: 100px 50px 0px 0px; float: left">
     <img src="images/evernote.png" style="width: 120px; height: 213px; margin: 100px 50px 0px 0px; float: left">
     <img src="images/linkedin.png" style="width: 120px; height: 200px; margin: 100px 50px 0px 0px; float: left">
     <img src="images/gplus.png" style="width: 120px; height: 200px; margin: 100px 0px 0px 0px; float: left">
 
-    =Les réseaux mobiles sont différents=
+## Les réseaux mobiles sont différents
     * La latence est élevée
     * La vitesse est très variable, ce qui est le pire en terme d'expérience utilisateur
     <br><a href="http://www.parleys.com/play/5148922b0364bc17fc56ca0c">"Faster Websites: Crash Course on Frontend Performance (Part 1/2)", Devoxx 2012</a>
 
-    =Comment se comporte mon app en conditions réelles ?=
+## Comment se comporte mon app en conditions réelles ?
     <img src="images/network-conditioner2.png" style="margin-top: 30px">
 
-    ==Et si on réimplémentait Evernote ?==[title]
+# Et si on réimplémentait Evernote ?{title}
     <h3>Enfin, juste la partie notes de texte ;)</h3>
 
-    =En 3 étapes=
+## En 3 étapes
     # Lire des notes en mode déconnecté
     # Créer des notes en mode déconnecté
     # Mettre à jour des notes en mode déconnecté et résoudre des conflits
 
-    ==Une seule chose à retenir : versioner les objets notes !==[title]
+# Une seule chose à retenir : versioner les objets notes !{title}
 
-    =Architecture d'une application mobile=
+## Architecture d'une application mobile
     <img src="images/nabila.svg" style="margin-top: 50px">
 
-    =REST API=
+## REST API
     * GET /notes
     * GET /notes/{uuid}
     * POST /notes
     * PUT /notes/{uuid}
     * DELETE /notes/{uuid}
 
-    ==1. Lire des notes en mode déconnecté==[title]
+# 1. Lire des notes en mode déconnecté{title}
     <img src="images/offline.jpg" class="fullimgstretch withopacity80">
     <a href="" class="attribution-top-right">Photo by Ilham Rahmansyah</a>
 
-    =Lire des notes en mode déconnecté=
+## Lire des notes en mode déconnecté
     <h3>Lire les documents JSON depuis un cache local côté client</h3>
 
-    ==HTTP a un mécanisme de cache, non ?==[title]
+# HTTP a un mécanisme de cache, non ?{title}
 
-    =On a besoin d'un cache de plus haut niveau=
+## On a besoin d'un cache de plus haut niveau
     * Si on veut faire des recherches en mode déconnecté
     * Ou si on veut faire de l'édition en mode déconnecté
     <br>
@@ -140,7 +140,7 @@
     <br><br>
     Selon les besoins, stocker le document JSON "brut" dans un store clé/valeur peut suffir.
 
-    =Qu'est-ce qu'on garde du caching HTTP ?=
+## Qu'est-ce qu'on garde du caching HTTP ?
     <br>
     Par exemple, je ne veux pas télécharger la même version d'un document JSON si elle est déjà dans mon cache HTTP.
     <br><br>
@@ -149,48 +149,48 @@
     * Etag et If-None-Match
     * ou Last-Modified et If-Modified-Since
 
-    ==Le cache HTTP, en pratique, ça donne quoi ?==[title]
+# Le cache HTTP, en pratique, ça donne quoi ?{title}
     <img src="images/Xcode.png" class="fullimgstretch" style="opacity: 0.4; padding-left: 100px">
 
-    =Cache HTTP GET avec ETAG=
+## Cache HTTP GET avec ETAG
     <img src="images/nshipster.png" style="margin-top: 20px">
     <a href="http://nshipster.com/nsurlcache/">Article de blog sur NSURLCache, les politiques de cache HTTP et les ETAG</a>
 
-    ==2. Créer des notes en mode déconnecté==[title]
+# 2. Créer des notes en mode déconnecté{title}
     <img src="images/offline.jpg" class="fullimgstretch withopacity80">
     <a href="" class="attribution-top-right">Photo by Ilham Rahmansyah</a>
 
-    =Créer des notes en mode déconnecté=
+## Créer des notes en mode déconnecté
     # Stocker le document JSON qui doit être posté (par exemple dans SQLite)
     # Essayer de poster le document JSON vers le server en tâche de fond
     # Marquer le document JSON comme posté avec succès seulement si le POST retourne OK
     # En cas d'échec du POST, essayer à nouveau de poster le document JSON à la prochaine synchronization avec le serveur
 
-    ==3. Résoudre des conflits lors de l'édition de notes==[title]
+# 3. Résoudre des conflits lors de l'édition de notes{title}
     <img src="images/offline.jpg" class="fullimgstretch withopacity80">
     <a href="" class="attribution-top-right">Photo by Ilham Rahmansyah</a>
 
-    =Résoudre des conflits lors de l'édition=
+## Résoudre des conflits lors de l'édition
     <br>
     Si vous laissez la possibilité à l'utilisateur d'éditer en mode déconnecté, des conflits vont se produire (même s'il n'y a pas d'édition multi-utilisateur).
     <img src="images/conflict.png" style="width: 180px; height: 300px; margin-top: 20px; margin-left: 250px">
 
-    ==La détection de conflit devrait être intégrée à l'API REST !==[title]
+# La détection de conflit devrait être intégrée à l'API REST !{title}
 
-    ==La *détection*, pas la *résolution*==[title]
+# La *détection*, pas la *résolution*{title}
 
-    ==Ça donne quoi dans l'API REST ?==[title]
+# Ça donne quoi dans l'API REST ?{title}
     <img src="images/Xcode.png" class="fullimgstretch" style="opacity: 0.4; padding-left: 100px">
 
-    ==Et la synchronisation dans l'application ?==[title]
+# Et la synchronisation dans l'application ?{title}
     <img src="images/Xcode.png" class="fullimgstretch" style="opacity: 0.4; padding-left: 100px">
 
-    =Deux mots sur le back-end et l'API REST=
+## Deux mots sur le back-end et l'API REST
     <img src="images/django.png" style="height: 120px; margin-top: 30px">
     <img src="images/PostgreSQL-9.gif" style="height: 150px; margin-top: 30px">
     <img src="images/heroku.jpg" style="height: 100px">
 
-    =REST API=
+## REST API
     * GET /notes-uuids
     * GET /notes
     * GET /notes/{uuid}
@@ -198,7 +198,7 @@
     * PUT /notes/{uuid}
     * DELETE /notes/{uuid}
 
-    =Django REST framework=
+## Django REST framework
     * Ajouter un UUID et une révision dans les objets Note
     * Rejeter les requêtes PUT ou DELETE si la révision n'est pas spécifiée (400 Bad request)
     * Rejeter les requêtes PUT ou DELETE si la révision n'est pas la révision courante (409 Conflict)
@@ -206,14 +206,14 @@
     <br>Tout le reste est déjà fourni !<br>
     <a href="https://github.com/creynaud/notes-server">https://github.com/creynaud/notes-server</a>
 
-    =Résumé=
+## Résumé
     * Ajouter un UUID et une révision dans tous les documents JSON
     * Lecture hors connexion: stocker les documents JSON en local côté client
     * Création hors connexion: poster vers le serveur en background et re-essayer en cas d'échec
     * Mise à jour hors connexion: gérer les conflits
     * Essayer de tirer profit du cache HTTP (headers Cache-Control, Etag et If-None-Match)
 
-    == ==[title-slide]
+#  {title-slide}
     <h2 style="color: black">Merci ! Questions ?</h2>
     @<center>
     <div class="autoshow">
@@ -238,13 +238,7 @@
 	/
 	<span class="deck-status-total"></span>
 </p>
-<!-- deck.goto snippet -->
-<form action="." method="get" class="goto-form">
-	<label for="goto-slide">Go to slide:</label>
-	<input type="text" name="slidenum" id="goto-slide" list="goto-datalist">
-	<datalist id="goto-datalist"></datalist>
-	<input type="submit" value="Go">
-</form>
+
 <!-- deck.navigation snippet -->
 <a href="#" class="nav deck-prev-link" title="Previous">&#8592;</a>
 <a href="#" class="nav deck-next-link" title="Next">&#8594;</a>
